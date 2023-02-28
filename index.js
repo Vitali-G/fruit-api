@@ -62,9 +62,9 @@ app.post("/fruits", (req, res) => {
     });
 
     if (exists) {
-        res.status(200).send("That piece of fruit is already in our list bro!")
+        res.status(404).send("That piece of fruit is already in our list bro!")
     } else {
-        fruits.push({"name": newFruit, "id": Date.now()})
+        fruits.push(req.body)
         res.status(201).send("Thanks, done.")
     }
 
