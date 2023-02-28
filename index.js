@@ -1,11 +1,13 @@
 require('dotenv').config(); //syntax required to use any .env environment variables
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const fruits = require('./fruits.json')
-const fs = require('fs');
+// const fs = require('fs'); unused ATM
 
 const port = process.env.PORT;
 
+app.use(cors());
 app.use(express.json()); //needed to read the body of the POST request
 
 //Home route
